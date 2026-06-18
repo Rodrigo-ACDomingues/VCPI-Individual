@@ -9,6 +9,7 @@
 \usepackage{listings}
 \usepackage{pgfplots}
 \usepackage{dblfloatfix}
+\usepackage{url}
 
 \lstset{
     basicstyle=\ttfamily\scriptsize,   % smaller font
@@ -37,6 +38,11 @@ Email: pg60301@alunos.uminho.pt}
 
 \begin{abstract}
 
+This work investigates the impact of different loss functions on Generative Adversarial Networks (GANs) using a controlled DCGAN framework on the CIFAR-10 dataset. A set of widely used adversarial losses, including BCE, WGAN-GP, Hinge, LSGAN, RaGAN, R1, Feature Matching, Perceptual Loss, MSGAN, and 0-GP, is evaluated under identical architectural and training conditions to isolate the effect of the loss formulation.
+
+Performance is assessed primarily using the Fréchet Inception Distance (FID), complemented by an analysis of training dynamics and generated image quality. Additionally, experiments are conducted on reduced dataset subsets to study the influence of data availability on convergence behaviour. The results suggest that, on CIFAR-10, relatively simple loss functions are sufficient to achieve strong performance, with most methods converging to comparable FID values.
+
+A comparison with prior work indicates that performance is strongly dependent on the overall experimental setup, particularly architecture and training strategy. Overall, the results suggest that for low-resolution datasets, careful training and architectural design are often more influential than the complexity of the loss function itself.
 
 \end{abstract}
 
@@ -44,13 +50,14 @@ Email: pg60301@alunos.uminho.pt}
 
 \section{Introduction}
 
-In this work, multiple loss functions are explored using a common DCGAN architecture in order to study the differences between several GAN training strategies. By keeping the network architecture and training setup fixed while modifying only the loss function, it is possible to directly compare their impact on training dynamics and image generation performance. Additionally, the CIFAR-10 dataset is divided into subsets of different sizes to investigate how the amount of available training data influences the effectiveness of each approach.
+In this work, multiple loss functions are explored using a common DCGAN architecture in order to study the differences between several GAN training strategies. By keeping the network architecture and training setup fixed while modifying only the loss function, it is possible to directly compare their impact on training dynamics and image generation performance.
 
 The evaluated variants are BCE, WGAN-GP, Hinge, LSGAN, RaGAN, R1, Feature Matching (FM), Perceptual Loss, MSGAN, and 0-GP.
 
-The experiments were conducted using the CIFAR-10 dataset, which contains 50,000 RGB images of size $32 \times 32$ belonging to ten different classes. In addition to the full dataset, subsets containing 30,000 and 10,000 images were also considered in order to study the impact of dataset size on training performance.
+The experiments were conducted using the CIFAR-10 dataset. In addition to the full dataset, subsets containing 30,000 and 10,000 images were also considered in order to study the impact of dataset size on training performance.
 
 Each configuration was trained for 100 epochs and periodically evaluated using the Fréchet Inception Distance (FID). The evolution of both generator and discriminator losses was also analyzed. The main objective is to compare the behavior of different loss functions and identify which approaches achieve the best performance under the considered experimental setup.
+
 
 
 
@@ -60,9 +67,22 @@ Each configuration was trained for 100 epochs and periodically evaluated using t
 
 The CIFAR-10 dataset was selected for this work due to several practical and experimental considerations. First, it contains a diverse set of image classes with significant visual differences, making it suitable for evaluating how different GAN loss functions adapt to a variety of image distributions. The dataset consists of ten balanced classes: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck.
 
-Another motivation for choosing CIFAR-10 is its relatively small size compared to more complex image datasets. The complete training set contains 50,000 RGB images with a resolution of $32 \times 32$ pixels, allowing multiple GAN variants to be trained within a reasonable computational budget while still providing meaningful comparisons between different training objectives.
+Another motivation for choosing CIFAR-10 is its relatively small size compared to more complex image datasets. The complete training set contains 60,000 RGB images with a resolution of $32 \times 32$ pixels, 50,000 of which are used for training, allowing multiple GAN variants to be trained within a reasonable computational budget while still providing meaningful comparisons between different training objectives.
 
 The dataset is balanced, containing 5,000 training images per class. To investigate the influence of dataset size on GAN performance, two additional subsets containing 30,000 and 10,000 images were created. In order to avoid introducing class imbalance as a confounding factor, all subsets were constructed using a stratified sampling procedure, preserving the original class distribution of the full dataset.
+
+Example images from the CIFAR-10 dataset are shown in Figure~\ref{fig:cifar_examples}. The figure illustrates the visual diversity of the dataset across the different object categories considered in this work.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{relatorio_images/real_samples.png}
+\caption{Sample images from the CIFAR-10 dataset. The dataset
+contains ten object categories and provides a diverse set of
+natural images for evaluating generative models.}
+\label{fig:cifar_examples}
+\end{figure}
+
+
 
 \subsection{Network Architecture}
 
@@ -73,6 +93,8 @@ The discriminator performs the opposite task, receiving either a real image from
 The architecture uses 64 feature maps in the first layer of both the generator and discriminator, following the standard DCGAN design. To ensure a fair comparison between loss functions, the same generator and discriminator architectures were used for all experiments whenever possible. The only exception was the Feature Matching (FM) variant, which required a modified discriminator capable of returning intermediate feature representations in addition to the final output.
 
 All convolutional layers were initialized using a normal distribution with mean 0 and standard deviation 0.02, while batch normalization layers were initialized according to the original DCGAN recommendations. Training was performed using the Adam optimizer with a batch size of 128, learning rates of $2\times10^{-4}$ for both networks, and $\beta_1=0.5$.
+
+
 
 \subsection{Loss Functions}
 
@@ -165,6 +187,209 @@ stability and convergence behavior.
 
 
 
+\subsection{Experimental Setup}
+
+All experiments were conducted using the same DCGAN
+architecture, hyperparameters, optimizer settings, and random
+seed. The only component modified between experiments was
+the loss function and any additional mechanisms required for
+its implementation (e.g., gradient penalties or feature matching).
+Each model was trained for 100 epochs and evaluated every
+10 epochs using the Fréchet Inception Distance (FID).
+
+
+
+\section{Results and Discussion}
+
+\subsection{FID Results}
+
+Figure~\ref{fig:fid_results} presents the final Fréchet Inception Distance (FID) obtained by each loss function after 100 training epochs on the full CIFAR-10 dataset. Lower values indicate better alignment between the distribution of generated images and real images.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{relatorio_images/fid_final_result.png}
+    \caption{Final FID comparison across different loss functions after 100 epochs of training.}
+    \label{fig:fid_results}
+\end{figure}
+
+The results show clear performance differences between the evaluated loss functions, highlighting the impact of the optimization objective on the quality of generated samples.
+
+The best performing methods are BCE and MSGAN, both achieving a final FID of 42.8. This indicates that, under the current DCGAN architecture and training setup, standard adversarial training remains good, and that the mode-seeking regularization introduced by MSGAN does not significantly alter the final performance but may contribute to improved diversity.
+
+A second group of methods, including RaGAN, Hinge, and Feature Matching, also achieves strong performance, with FID values between 43 and 44. These losses primarily improve training stability rather than leading to substantial gains in sample quality.
+
+WGAN-GP shows a moderate degradation in performance (FID 49.6). Although Wasserstein-based objectives are designed to improve gradient behavior and training stability, this does not necessarily translate into better perceptual quality under this specific architecture and training configuration.
+
+LSGAN, R1 regularization, and 0-GP exhibit weaker performance, with FID values around 57-60. This suggests that the added regularization constraints may not be optimally balanced for this DCGAN setup, potentially limiting generator flexibility.
+
+Finally, the Perceptual loss performs significantly worse than all other methods, reaching an FID of 152.1. This indicates a mismatch between feature-space optimization using pretrained networks and the adversarial training dynamics in this context.
+
+It is important to emphasize that each model was trained only once due to computational constraints. Consequently, it was not possible to compute statistical measures such as mean performance or standard deviation across multiple runs. As a result, the reported FID values should be interpreted as single-run estimates rather than definitive performance indicators.
+
+Despite this limitation, the results provide a consistent overall trend across all evaluated loss functions. In particular, simpler adversarial objectives such as BCE and MSGAN consistently achieve the best performance on CIFAR-10 under the considered DCGAN architecture. More complex loss formulations, including WGAN-GP, R1, and 0-GP, do not lead to significant improvements in this setup and, in some cases, result in degraded performance.
+
+These findings suggest that, for relatively simple datasets such as CIFAR-10, standard adversarial training objectives may already provide a strong baseline, and additional loss complexity does not necessarily translate into better sample quality. This is further reinforced by the poor performance of perceptual-based objectives, which appear to be less suited to low-resolution generative modeling in this context.
+
+
+
+\subsection{FID Evolution During Training}
+
+Figure~\ref{fig:fid_evolution} presents the evolution of the Fréchet Inception Distance (FID) throughout training for all evaluated loss functions. Lower FID values indicate a closer match between the generated and real image distributions.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{relatorio_images/fid_evolution.png}
+    \caption{Evolution of FID over 100 training epochs for all evaluated loss functions. Lower values indicate better generative performance.}
+    \label{fig:fid_evolution}
+\end{figure}
+
+Most loss functions exhibit a similar convergence pattern, with
+FID values decreasing steadily during the first 60 epochs and
+then improving more gradually towards their final values. BCE,
+Hinge, Feature Matching, MSGAN and WGAN-GP all follow this
+behaviour and ultimately converge to a relatively narrow range
+of FID scores.
+
+Notable exceptions can be observed for RaGAN and LSGAN.
+RaGAN presents larger fluctuations throughout training,
+whereas LSGAN reaches its best performance around epoch 70
+before experiencing a noticeable degradation during the later
+stages of training. Since only a single run was performed, it
+is difficult to determine whether this behaviour reflects an
+intrinsic property of the loss function or normal training
+variance.
+
+R1 and 0-GP achieve the highest initial FID values, exceeding
+300 in the early stages of training. However, both methods
+improve rapidly and eventually stabilize below an FID of 60.
+In contrast, the Perceptual loss exhibits the slowest and
+least effective convergence, reducing its FID substantially
+but remaining far above the performance achieved by the other
+methods.
+
+Overall, the results indicate that the main differences
+between loss functions arise not only from their final FID
+scores but also from their convergence speed and stability
+throughout training.
+
+In addition to the quantitative evaluation provided by FID, the visual evolution of the generated samples can be observed in Figure~\ref{fig:image_evolution}. The figure presents images generated at different stages of training for each loss function, allowing a qualitative assessment of convergence behaviour. Consistent with the FID analysis, methods achieving lower final FID scores generally produce more recognizable and coherent samples, while losses with poorer quantitative performance tend to exhibit slower visual improvement and lower image quality throughout training.
+
+
+
+\subsection{Impact of Dataset Size}
+
+Figure~\ref{fig:fid_final_30k} and Figure~\ref{fig:fid_final_10k} present the final
+FID scores obtained when training with 30,000 and 10,000 images, respectively.
+Figure~\ref{fig:fid_evolution_30k} and Figure~\ref{fig:fid_evolution_10k} show the
+corresponding FID evolution during training.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{relatorio_images/fid_final_30k.png}
+\caption{Final FID scores obtained using the 30,000-image subset across all evaluated loss functions.}
+\label{fig:fid_final_30k}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{relatorio_images/fid_final_10k.png}
+\caption{Final FID scores obtained using the 10,000-image subset across all evaluated loss functions.}
+\label{fig:fid_final_10k}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{relatorio_images/fid_evolution_30k.png}
+\caption{Evolution of FID during training using the 30,000-image subset.}
+\label{fig:fid_evolution_30k}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{relatorio_images/fid_evolution_10k.png}
+\caption{Evolution of FID during training using the 10,000-image subset.}
+\label{fig:fid_evolution_10k}
+\end{figure}
+
+When reducing the dataset from 50,000 to 30,000 images, the degradation in performance
+is generally moderate for most loss functions. As shown in
+Figure~\ref{fig:fid_final_30k}, BCE, Hinge, Feature Matching, MSGAN, and RaGAN maintain
+good performance, with only slight increases in FID compared to the full dataset.
+This behaviour is also reflected in Figure~\ref{fig:fid_evolution_30k}, where convergence
+curves remain smooth and follow patterns similar to those observed in the full dataset
+setting.
+
+In contrast, R1, 0-GP, and Perceptual Loss exhibit a stronger sensitivity to the reduced
+dataset size. Figure~\ref{fig:fid_evolution_30k} shows slower convergence for these
+methods, with R1 and 0-GP requiring significantly more epochs to reach stable FID values.
+This indicates that these approaches are more dependent on larger datasets to achieve
+efficient optimization.
+
+The impact of dataset reduction becomes substantially more pronounced when using only
+10,000 images. As illustrated in Figure~\ref{fig:fid_final_10k}, all loss functions
+experience a significant increase in FID. This is also evident in
+Figure~\ref{fig:fid_evolution_10k}, where convergence is slower and initial FID values
+are considerably higher across all methods.
+
+Despite this degradation, Feature Matching remains one of the most robust approaches,
+achieving the lowest or near-lowest FID in both subset settings. Similarly, BCE, Hinge,
+and MSGAN maintain relatively stable rankings across dataset sizes, suggesting good
+data efficiency compared to other methods.
+
+Overall, the results indicate that larger and more diverse training datasets lead to better generative performance, as they allow the GAN to learn the underlying data distribution more effectively and promote a more balanced interaction between the generator and discriminator.
+
+
+
+\subsection{Comparison with Previous Work}
+
+To provide additional context for the obtained results, a subset of the evaluated loss functions was compared against results reported in other studies. In particular, two studies are considered: Jolicoeur-Martineau (2018), in \textit{The Relativistic Discriminator: A Key Element Missing from Standard GAN} at \url{https://arxiv.org/pdf/1807.00734}, and the CLR-GAN framework presented at \url{https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/00072.pdf}. These works report FID scores for standard GAN objectives on CIFAR-10 under different experimental settings.
+
+Figure~\ref{fig:comparison_literature} presents the final FID scores obtained in this work alongside the values reported in Jolicoeur-Martineau (2018). The comparison includes SGAN (BCE), LSGAN, Hinge, RaGAN, and WGAN-GP, as these losses are directly evaluated in both studies. Although both works use the CIFAR-10 dataset, the experimental setups differ significantly: Jolicoeur-Martineau employs an SNGAN architecture trained for 100,000 generator iterations, whereas this work uses a DCGAN trained for 100 epochs.
+
+Despite these differences, some consistent trends can still be observed. In Jolicoeur-Martineau (2018), RaGAN improves over SGAN, whereas in this work both achieve similar performance. Hinge and WGAN-GP remain among the strongest methods in both studies, while LSGAN shows weaker performance in this work compared to the paper.
+
+A second comparison with CLR-GAN also reports lower FID values for the evaluated loss functions. While this may suggest improved generative performance, it is difficult to attribute these gains solely to the choice of loss function, as the framework incorporates additional architectural components and training strategies that may also contribute to the observed results.
+
+Overall, while some qualitative trends are consistent across studies, absolute performance differences are mainly driven by changes in architecture and training setup rather than the loss functions themselves.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{relatorio_images/fid_comparison_studies.png}
+\caption{Comparison between obtained FID values and those reported in other studies.}
+\label{fig:comparison_literature}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\section{Conclusion}
+
+This work evaluated a set of GAN loss functions under a controlled DCGAN framework on the CIFAR-10 dataset, with the goal of isolating the effect of the loss formulation on training dynamics and generation quality. Across all experiments, most loss functions converged to a relatively narrow performance range in terms of FID, despite their differing theoretical motivations.
+
+A key observation is that, for a relatively simple dataset such as CIFAR-10, simpler and less aggressive adversarial objectives (e.g., BCE and Hinge) already achieve strong and consistent results. More complex formulations do not consistently translate into substantial performance gains under this setting, suggesting that the dataset itself may not fully exploit the additional modelling capacity provided by more advanced loss designs.
+
+These results indicate that the benefits of more sophisticated loss functions may become more apparent in higher-resolution or more complex datasets, where richer feature representations and more challenging data distributions could better leverage their theoretical advantages.
+
+Overall, the study suggests that for low-resolution benchmark datasets, the choice of loss function is often less critical than ensuring a stable training setup and a well-designed baseline architecture, which together play a more dominant role in determining final performance.
+
+
+
+
+
+
+
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=\textwidth]{relatorio_images/image_evolution.png}
+    \caption{Visual evolution of generated samples throughout training for each evaluated loss function. Images are shown at selected training epochs, allowing a qualitative comparison of convergence behaviour and sample quality.}
+    \label{fig:image_evolution}
+\end{figure*}
 
 
 \end{document}

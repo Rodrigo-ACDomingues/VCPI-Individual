@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1781566673.75526 "c:/Users/Rodrigo/Desktop/VCPI-Individual/relatorio.tex" "relatorio.pdf" "relatorio" 1781566675.1508 0
+["pdflatex"] 1781813848.52465 "c:/Users/Rodrigo/Desktop/VCPI-Individual/relatorio.tex" "relatorio.pdf" "relatorio" 1781813850.35513 0
   "C:/Users/Rodrigo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1780497999 187664 65fa417f6850b604c49bfafe76826e39 ""
   "C:/Users/Rodrigo/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1779542411 13351281 fc9a1277357af495a7792cb5ed461dec ""
   "C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -169,10 +169,20 @@
   "C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/tex/latex/pgf/utilities/pgfrcs.sty" 1756451144 325 f9f16d12354225b7dd52a3321f085955 ""
   "C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/tex/latex/pgfplots/pgfplots.sty" 1621075461 4904 ee78b44e85d6fccf08cd99370557481e ""
   "C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
+  "C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/Rodrigo/Desktop/VCPI-Individual/relatorio.tex" 1781566673 8701 6137caf7ed9ae87f30b4ad714a4df289 ""
-  "relatorio.aux" 1781566674 702 bf507f1756ecffc28cd595dc24b2099f "pdflatex"
-  "relatorio.tex" 1781566673 8701 6137caf7ed9ae87f30b4ad714a4df289 ""
+  "c:/Users/Rodrigo/Desktop/VCPI-Individual/relatorio.tex" 1781813847 24000 0bc5c1f6422a88d73279874fdd723864 ""
+  "relatorio.aux" 1781813850 3917 d7ad7d313e639361cfa84bada5c08640 "pdflatex"
+  "relatorio.tex" 1781813847 24000 0bc5c1f6422a88d73279874fdd723864 ""
+  "relatorio_images/fid_comparison_studies.png" 1781802819 87380 cd5dc9f3e509b402bd940d5aa1bdabe6 ""
+  "relatorio_images/fid_evolution.png" 1781707394 105193 27d772296536c1431d36b4e1969517a5 ""
+  "relatorio_images/fid_evolution_10k.png" 1781723432 120783 807dd91ae2de94a84ef1615eea838f52 ""
+  "relatorio_images/fid_evolution_30k.png" 1781723395 99279 1e6049745dfdaf57b58b428b8a344c4a ""
+  "relatorio_images/fid_final_10k.png" 1781723450 47034 49995548183ab049ec6dec26490c9c2c ""
+  "relatorio_images/fid_final_30k.png" 1781723417 49541 48d7f330ddea16cbc7a8f5485026b359 ""
+  "relatorio_images/fid_final_result.png" 1781707357 54541 48e5f05eec47b9f0fa18b4def4db7fea ""
+  "relatorio_images/image_evolution.png" 1781325698 9235781 55d15fcdd9d4a613ecf34d81becbe4f0 ""
+  "relatorio_images/real_samples.png" 1781713350 443670 7ebd2e650991143493550bcd3ac02fe4 ""
   (generated)
   "relatorio.aux"
   "relatorio.log"

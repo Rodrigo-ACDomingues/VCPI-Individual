@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.23)  16 JUN 2026 00:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.23)  18 JUN 2026 21:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -486,26 +486,29 @@ Already applied: [0000/00/00] Old fixltx2e package on input line 53.
 )
 \@dblbotnum=\count338
 \c@dblbotnumber=\count339
+) (C:\Users\Rodrigo\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (C:\Users\Rodrigo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count340
 ) (relatorio.aux)
 \openout1 = `relatorio.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 -- Lines per column: 56 (exact).
 (C:\Users\Rodrigo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
@@ -531,19 +534,79 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 22.
+ on input line 23.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
-(C:\Users\Rodrigo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+
+Underfull \vbox (badness 1377) has occurred while \output is active []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+ (C:\Users\Rodrigo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
  (C:\Users\Rodrigo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{C:/Users/Rodrigo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
+)
+<relatorio_images/real_samples.png, id=4, 456.20438pt x 232.61906pt>
+File: relatorio_images/real_samples.png Graphic file (type png)
+<use relatorio_images/real_samples.png>
+Package pdftex.def Info: relatorio_images/real_samples.png  used on input line 78.
+(pdftex.def)             Requested size: 252.0pt x 128.49458pt.
+ [1{C:/Users/Rodrigo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
-]
+ <./relatorio_images/real_samples.png>]
+<relatorio_images/fid_final_result.png, id=17, 606.76688pt x 415.5525pt>
+File: relatorio_images/fid_final_result.png Graphic file (type png)
+<use relatorio_images/fid_final_result.png>
+Package pdftex.def Info: relatorio_images/fid_final_result.png  used on input line 210.
+(pdftex.def)             Requested size: 226.79846pt x 155.32454pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2]
+<relatorio_images/fid_evolution.png, id=24, 613.54219pt x 392.96812pt>
+File: relatorio_images/fid_evolution.png Graphic file (type png)
+<use relatorio_images/fid_evolution.png>
+Package pdftex.def Info: relatorio_images/fid_evolution.png  used on input line 241.
+(pdftex.def)             Requested size: 252.0pt x 161.40578pt.
+ [3 <./relatorio_images/fid_final_result.png> <./relatorio_images/fid_evolution.png>]
+<relatorio_images/fid_final_30k.png, id=30, 544.28343pt x 366.61969pt>
+File: relatorio_images/fid_final_30k.png Graphic file (type png)
+<use relatorio_images/fid_final_30k.png>
+Package pdftex.def Info: relatorio_images/fid_final_30k.png  used on input line 288.
+(pdftex.def)             Requested size: 252.0pt x 169.73796pt.
+<relatorio_images/fid_final_10k.png, id=31, 546.54187pt x 365.11406pt>
+File: relatorio_images/fid_final_10k.png Graphic file (type png)
+<use relatorio_images/fid_final_10k.png>
+Package pdftex.def Info: relatorio_images/fid_final_10k.png  used on input line 295.
+(pdftex.def)             Requested size: 252.0pt x 168.34448pt.
+<relatorio_images/fid_evolution_30k.png, id=32, 534.49687pt x 345.54094pt>
+File: relatorio_images/fid_evolution_30k.png Graphic file (type png)
+<use relatorio_images/fid_evolution_30k.png>
+Package pdftex.def Info: relatorio_images/fid_evolution_30k.png  used on input line 302.
+(pdftex.def)             Requested size: 252.0pt x 162.9157pt.
+<relatorio_images/fid_evolution_10k.png, id=33, 537.50812pt x 350.81062pt>
+File: relatorio_images/fid_evolution_10k.png Graphic file (type png)
+<use relatorio_images/fid_evolution_10k.png>
+Package pdftex.def Info: relatorio_images/fid_evolution_10k.png  used on input line 309.
+(pdftex.def)             Requested size: 252.0pt x 164.46883pt.
+ [4 <./relatorio_images/fid_final_30k.png> <./relatorio_images/fid_final_10k.png> <./relatorio_images/fid_evolution_30k.png> <./relatorio_images/fid_evolution_10k.png>]
+<relatorio_images/fid_comparison_studies.png, id=41, 734.745pt x 493.0922pt>
+File: relatorio_images/fid_comparison_studies.png Graphic file (type png)
+<use relatorio_images/fid_comparison_studies.png>
+Package pdftex.def Info: relatorio_images/fid_comparison_studies.png  used on input line 357.
+(pdftex.def)             Requested size: 252.0pt x 169.1163pt.
+<relatorio_images/image_evolution.png, id=42, 2128.1106pt x 820.9872pt>
+File: relatorio_images/image_evolution.png Graphic file (type png)
+<use relatorio_images/image_evolution.png>
+Package pdftex.def Info: relatorio_images/image_evolution.png  used on input line 389.
+(pdftex.def)             Requested size: 516.0pt x 199.05783pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -555,24 +618,24 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[2] (relatorio.aux)
+[5 <./relatorio_images/fid_comparison_studies.png>] [6 <./relatorio_images/image_evolution.png>] (relatorio.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 25293 strings out of 467690
- 644812 string characters out of 5413998
- 1187738 words of memory out of 5000000
- 53975 multiletter control sequences out of 15000+600000
+ 25453 strings out of 467690
+ 649050 string characters out of 5413998
+ 1191740 words of memory out of 5000000
+ 54131 multiletter control sequences out of 15000+600000
  659894 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,108p,770b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Rodrigo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on relatorio.pdf (2 pages, 105670 bytes).
+Output written on relatorio.pdf (6 pages, 15624968 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
+ 89 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
